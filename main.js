@@ -1,6 +1,6 @@
 'use strict';
 
-const counter = document.querySelector('.counter').innerHTML;
+const counter = document.querySelector('.counter');
 const input = document.querySelector('#guess');
 const button = document.querySelector('.btn');
 const message = document.querySelector('.message');
@@ -17,7 +17,6 @@ function getRandomNumber(max) {
 function adivina () {
 
     const inputNumber = parseInt(input.value);
-
     
     if (inputNumber < randomNumber) {
         message.innerHTML = 'Demasiado bajo';
@@ -28,6 +27,7 @@ function adivina () {
     else  {
         message.innerHTML = '¡has ganado campeona!';
     }
+
 
 }
 
