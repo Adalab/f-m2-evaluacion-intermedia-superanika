@@ -33,20 +33,25 @@ function adivina () {
     const inputNumber = input.value;
     
     if (inputNumber < randomNumber) {
-        hint('Demasiado bajo');
-        acc()
+        if (inputNumber < 0) {
+            hint('Debes introducir un número mayor que 0');
+        } else {
+            hint('No llegaste');
+        };
+        acc();
 
     }
     else if (inputNumber > randomNumber) {
-        hint('Demasiado alto');
-        acc()
+        if (inputNumber > 100) {
+            hint('Debes introducir un número menor que 100');
+        }else {
+            hint('Te has pasado');
+        }
+        acc();
     }
     else  {
         hint('¡has ganado campeona!');
     }
-
-
-
 }
 
 button.addEventListener('click', adivina);
