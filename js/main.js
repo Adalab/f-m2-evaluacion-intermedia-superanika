@@ -16,25 +16,28 @@ function getRandomNumber(max) {
 
   console.log('> '+ randomNumber);
   
+function hint(clue) {
+    message.innerHTML = clue;
+}
 
 function adivina () {
 
     const inputNumber = parseInt(input.value);
     
     if (inputNumber < randomNumber) {
-        message.innerHTML = 'Demasiado bajo';
+        hint('Demasiado bajo');
         i = i + 1;
         counter.innerHTML = i;
 
     }
     else if (inputNumber > randomNumber) {
-        message.innerHTML = 'Demasiado alto';
+        hint('Demasiado alto');
         i = i + 1;
         counter.innerHTML = i;
 
     }
     else  {
-        message.innerHTML = '¡has ganado campeona!';
+        hint('¡has ganado campeona!');
     }
 
 
