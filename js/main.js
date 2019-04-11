@@ -7,34 +7,39 @@ const message = document.querySelector('.message');
 const randomNumber = getRandomNumber(100);
 
 let i = 0;
-counter.innerHTML = i;
-
+write(counter, i);
 
 function getRandomNumber(max) {
     return Math.ceil(Math.random() * max);
-  }
+}
 
   console.log('> '+ randomNumber);
+
+  function write(selector, text) {
+      selector.innerHTML = text;
+  }
+
   
 function hint(clue) {
-    message.innerHTML = clue;
+    write(message, clue);
+}
+function acc() {
+    i = i + 1;
+    write(counter, i);
 }
 
 function adivina () {
 
-    const inputNumber = parseInt(input.value);
+    const inputNumber = input.value;
     
     if (inputNumber < randomNumber) {
         hint('Demasiado bajo');
-        i = i + 1;
-        counter.innerHTML = i;
+        acc()
 
     }
     else if (inputNumber > randomNumber) {
         hint('Demasiado alto');
-        i = i + 1;
-        counter.innerHTML = i;
-
+        acc()
     }
     else  {
         hint('¡has ganado campeona!');
