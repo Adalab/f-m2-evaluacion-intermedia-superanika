@@ -30,7 +30,7 @@ function acc() {
 
 function adivina () {
 
-    const inputNumber = input.value;
+    const inputNumber = parseInt(input.value);
     
     if (inputNumber < randomNumber) {
         if (inputNumber < 0) {
@@ -49,8 +49,12 @@ function adivina () {
         }
         acc();
     }
-    else  {
+    else if (inputNumber === randomNumber){
         hint('¡has ganado campeona!');
+    }
+    else  {
+        hint('¡Debes introducir un número primero!');
+        acc();
     }
 }
 
