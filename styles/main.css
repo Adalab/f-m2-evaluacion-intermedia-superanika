@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.prueba {
+    font-style: italic;
+}
+.wrapper {
+    height: 100%;
+    background-image: linear-gradient(rgb(254, 230, 166), rgb(237, 231, 176));
+   
+}
+.title {
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+.counter {
+    position: absolute;
+    margin: 0;
+    top: 20px;
+    right: 20px;
+    font-size: 60px;
+    color: red;
+
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.label {
+    font-size: 18px;
+    margin: 50px 0;
+}
+#guess {
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 25px;
+    text-align: center;
+}
+.btn {
+    margin-top: 50px;
+    background-color: goldenrod;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px grey;
+
+}
+.message {
+    text-align: center;
+    border: 1px solid goldenrod;    
+    margin: 40px;
+    padding: 20px 0;
+}
+.win {
+    text-transform: uppercase;
+    font-size: 20px;
+    color: goldenrod;
+}
+.hide {
+    display: none;
+}
+.reset {
+    position: relative;
+    bottom: 0;
+}

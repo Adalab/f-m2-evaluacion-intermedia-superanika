@@ -5,6 +5,7 @@ const input = document.querySelector('#guess');
 const button = document.querySelector('.btn');
 const message = document.querySelector('.message');
 const randomNumber = getRandomNumber(100);
+const resetBtn = document.querySelector('.reset');
 
 let i = 0;
 write(counter, i);
@@ -26,6 +27,13 @@ function hint(clue) {
 function acc() {
     i = i + 1;
     write(counter, i);
+}
+function addClass(selector, className) {
+    selector.classList.add(className);
+}
+
+function rmvClass(selector, className) {
+    selector.classList.remove(className);
 }
 
 function adivina () {
@@ -51,6 +59,9 @@ function adivina () {
     }
     else if (inputNumber === randomNumber){
         hint('¡has ganado campeona!');
+        addClass(message, 'win');
+        rmvClass(resetBtn, 'hide');
+        addClass(button, 'hide');
     }
     else  {
         hint('¡Debes introducir un número primero!');
@@ -58,4 +69,14 @@ function adivina () {
     }
 }
 
+function reset() {
+    i = 0;
+    addClass(resetBtn, 'hide');
+    rmvClass(button, 'hide');
+    rmvClass(message, 'win');
+    input.value = "";
+    hint(`Escribe un numero y dale a <span class="prueba">Prueba</span>`);
+}
+
 button.addEventListener('click', adivina);
+resetBtn.addEventListener('click', reset);
