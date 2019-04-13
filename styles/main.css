@@ -69,3 +69,8 @@ body {
     position: relative;
     bottom: 0;
 }
+.times {
+    color: black;
+    text-transform: none;
+    font-size: 16px;
+}

@@ -19,8 +19,7 @@ console.log('> '+ randomNumber);
 
 function write(selector, text) {
       selector.innerHTML = text;
-  }
-
+}
   
 function hint(clue) {
     write(message, clue);
@@ -36,6 +35,38 @@ function addClass(selector, className) {
 function rmvClass(selector, className) {
     selector.classList.remove(className);
 }
+
+
+function adivina () {
+
+    const inputNumber = parseInt(input.value);
+    acc();
+    
+    if (inputNumber < randomNumber) {
+        if (inputNumber < 0) {
+            hint('Debes introducir un número mayor que 0');
+        } else {
+            hint('No llegaste');
+        };
+    }
+    else if (inputNumber > randomNumber) {
+        if (inputNumber > 100) {
+            hint('Debes introducir un número menor que 100');
+        }else {
+            hint('Te has pasado');
+        }
+    }
+    else if (inputNumber === randomNumber){
+        hint(`¡has ganado campeona! <br> <span class="times">Has utilizado ${i} intentos</span>`);
+        addClass(message, 'win');
+        rmvClass(resetBtn, 'hide');
+        addClass(button, 'hide');        
+    }
+    else  {
+        hint('¡Debes introducir un número primero!');     
+    }
+}
+
 function reset() {
     i = 0;
     write(counter, i);
@@ -47,43 +78,6 @@ function reset() {
     randomNumber = getRandomNumber(100);
     console.log('> '+ randomNumber);
 }
-
-function adivina () {
-
-    const inputNumber = parseInt(input.value);
-
-
-    
-    if (inputNumber < randomNumber) {
-        if (inputNumber < 0) {
-            hint('Debes introducir un número mayor que 0');
-        } else {
-            hint('No llegaste');
-        };
-        acc();
-
-    }
-    else if (inputNumber > randomNumber) {
-        if (inputNumber > 100) {
-            hint('Debes introducir un número menor que 100');
-        }else {
-            hint('Te has pasado');
-        }
-        acc();
-    }
-    else if (inputNumber === randomNumber){
-        hint('¡has ganado campeona!');
-        addClass(message, 'win');
-        rmvClass(resetBtn, 'hide');
-        addClass(button, 'hide');
-    }
-    else  {
-        hint('¡Debes introducir un número primero!');
-        acc();
-    }
-}
-
-
 
 button.addEventListener('click', adivina);
 resetBtn.addEventListener('click', reset);
